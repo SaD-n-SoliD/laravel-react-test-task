@@ -27,9 +27,8 @@
    ```bash
    docker-compose exec backend php artisan migrate --seed
    ```
-4. Проект запущен и готов к использованию
-   Frontend: http://localhost:3000
-   Backend: http://localhost:8000
+4. Проект запущен и готов к использованию:
+    http://localhost:8000
 
 
 ## Сброс базы данных к исходному состоянию
