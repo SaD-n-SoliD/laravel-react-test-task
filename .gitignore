@@ -1,0 +1,67 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.pid.lock
+
+# Node dependencies
+node_modules/
+package-lock.json
+
+# Laravel
+vendor/
+public/hot
+public/storage
+storage/*.key
+.env.backup
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+!.env.example
+!.env.staging
+
+# Laravel storage
+backend/storage/logs/*
+backend/storage/framework/cache/data/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*
+
+# Docker
+.dockerignore
+*.dockerignore
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+plans
+
+# Build artifacts
+dist/
+build/
+coverage/
+
+# Processed files
+*.tmp
+*.temp
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Docker compose overrides
+docker-compose.override.yml
