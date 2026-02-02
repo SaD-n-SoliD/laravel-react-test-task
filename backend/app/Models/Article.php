@@ -19,8 +19,23 @@ class Article extends Model
 		'updated_at' => 'datetime',
 	];
 
+	protected $appends = ['excerpt'];
+
 	public function comments()
 	{
 		return $this->hasMany(Comment::class);
+	}
+
+	/**
+	 * Получить краткое описание статьи
+	 *
+	 * @return string
+	 */
+	public function getExcerptAttribute()
+	{
+		$content = trim(strip_tags($this->content));
+		$excerpt = mb_strlen($content, 'UTF-8') > 200 ? mb_substr($content, 0, 200, 'UTF-8') . '...' : $content;
+
+		return $excerpt;
 	}
 }

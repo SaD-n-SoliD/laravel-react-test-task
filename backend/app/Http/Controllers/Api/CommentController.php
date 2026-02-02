@@ -23,6 +23,7 @@ class CommentController extends Controller
 			'content' => $validatedData['content']
 		]);
 
-		return response()->json($comment, 201);
+		// Возвращаем только созданный комментарий
+		return response()->json($comment, 201, [], JSON_UNESCAPED_UNICODE);
 	}
 }

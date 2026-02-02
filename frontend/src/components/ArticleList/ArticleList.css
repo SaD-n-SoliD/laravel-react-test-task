@@ -1,0 +1,61 @@
+/* Стили для списка статей */
+
+.article-list-container {
+	margin: 0;
+	padding: 0;
+}
+
+.article-card {
+	padding-bottom: 1.5rem;
+	border-bottom: 1px solid #eee;
+}
+
+.article-link {
+	text-decoration: none;
+	color: #333;
+}
+
+.article-date {
+	color: #666;
+	font-size: 0.9rem;
+	margin-bottom: 0.5rem;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	margin-bottom: 2rem;
+	color: #333;
+}
+
+.articles-grid {
+	display: grid;
+	gap: 1rem;
+}
+
+.article-title {
+	margin: 0 0 0.5rem 0;
+	font-size: 1.5rem;
+}
+
+.article-excerpt {
+	color: #495057;
+	line-height: 1.6;
+}
+
+.loading,
+.error {
+	text-align: center;
+	padding: 2rem;
+	font-size: 1.2rem;
+}
+
+.error {
+	color: #dc3545;
+}
+
+.no-articles {
+	text-align: center;
+	color: #6c757d;
+	font-style: italic;
+	padding: 2rem;
+}

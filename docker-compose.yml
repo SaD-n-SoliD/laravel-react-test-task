@@ -52,8 +52,6 @@ services:
     volumes:
       # Копируем конфигурацию nginx для обработки SPA и прокси
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
-      # Монтируем директорию фронтенда
-      - ./frontend/dist:/usr/share/nginx/html
     depends_on:
       - backend
     networks:

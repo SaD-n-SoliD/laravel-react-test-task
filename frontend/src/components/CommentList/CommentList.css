@@ -1,0 +1,50 @@
+/* Стили для списка комментариев */
+
+.comment-list {
+	margin-top: 1.5rem;
+}
+
+.comment-item {
+	margin-bottom: 1rem;
+	border-bottom: 1px solid #eee;
+}
+
+.comment-author {
+	margin: 0 0 0.5rem 0;
+	font-size: 1rem;
+}
+
+.comment-content {
+	margin: 0;
+}
+
+.comment-date {
+	color: #999;
+	font-size: 0.8rem;
+}
+
+.no-comments {
+	margin: 0;
+}
+
+.comment-list > div {
+	margin-top: 1.5rem;
+}
+
+.comment-item div {
+	margin-bottom: 1rem;
+}
+
+.comment-item h4 {
+	margin: 0 0 0.5rem 0;
+	font-size: 1rem;
+}
+
+.comment-item p {
+	margin: 0;
+}
+
+.comment-item small {
+	color: #999;
+	font-size: 0.8rem;
+}

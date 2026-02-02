@@ -1,29 +1,33 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import ArticleList from './components/ArticleList';
-import ArticlePage from './components/ArticlePage';
-import ArticleForm from './components/ArticleForm';
+import { ArticleList } from './components/ArticleList/ArticleList';
+import { ArticlePage } from './components/ArticlePage/ArticlePage';
+import { ArticleForm } from './components/ArticleForm/ArticleForm';
+import './App.css';
 
-function App() {
+export default function App() {
 	return (
 		<Router>
 			<div className="app">
-				<nav style={{ padding: '1rem', borderBottom: '1px solid #ccc' }}>
-					<Link to="/" style={{ marginRight: '1rem' }}>Главная</Link>
-					<Link to="/new" style={{ marginRight: '1rem' }}>Новая статья</Link>
-				</nav>
+				<header className="app-header">
+					<nav className="navbar">
+						<ul className="nav-links">
+							<li><Link to="/">Главная</Link></li>
+							<li><Link to="/new">Новая статья</Link></li>
+						</ul>
+					</nav>
+				</header>
 
-				<main style={{ padding: '1rem' }}>
-					<Routes>
-						<Route path="/" element={<ArticleList />} />
-						<Route path="/articles/:id" element={<ArticlePage />} />
-						<Route path="/new" element={<ArticleForm />} />
-						<Route path="/edit/:id" element={<ArticleForm />} />
-					</Routes>
+				<main className="app-main">
+					<div className="container">
+						<Routes>
+							<Route path="/" element={<ArticleList />} />
+							<Route path="/articles/:id" element={<ArticlePage />} />
+							<Route path="/new" element={<ArticleForm />} />
+							<Route path="/edit/:id" element={<ArticleForm />} />
+						</Routes>
+					</div>
 				</main>
 			</div>
 		</Router>
 	);
 }
-
-export default App;

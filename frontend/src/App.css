@@ -1,0 +1,68 @@
+/* Стили для основного приложения */
+
+.app {
+	max-width: 800px;
+	margin: 0 auto;
+	background-color: white;
+	min-height: 100vh;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.app-header {
+	padding: 1rem;
+	border-bottom: 1px solid #ccc;
+	background-color: #f8f9fa;
+}
+
+.navbar {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 1rem;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 1rem;
+	/* display: flex; */
+	/* justify-content: flex-start; */
+}
+
+.nav-links {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.nav-links a {
+	color: #333;
+	text-decoration: none;
+	padding: 0.5rem 1rem;
+	border-radius: 4px;
+	transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+	color: #000;
+	background-color: #e9ecef;
+}
+
+.app-main {
+	flex: 1;
+	padding: 2rem 0;
+	background-color: #f8f9fa;
+}
+
+/* Responsive navigation */
+@media (max-width: 768px) {
+	.nav-links {
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.container {
+		padding: 0 0.5rem;
+	}
+}
