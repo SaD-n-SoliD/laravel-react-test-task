@@ -1,52 +1,27 @@
-FROM node:18-alpine
+FROM node:18-alpine AS frontend-builder
 
 WORKDIR /app
 
-# Копируем package.json
-COPY ../frontend/package.json .
-
-# Копируем package-lock.json если он существует (создаем копию на всякий случай)
-RUN if [ -f ../frontend/package-lock.json ]; then cp ../frontend/package-lock.json .; fi
-
-# Устанавливаем зависимости
-RUN npm install
-
-# Копируем остальные файлы
+# Копируем frontend файлы
 COPY ../frontend .
 
-# Устанавливаем права доступа
-RUN chmod -R 755 /app
-
-# Собираем проект
+# Устанавливаем зависимости и собираем приложение
+RUN npm install
 RUN npm run build
 
-# Устанавливаем nginx для раздачи статических файлов
-RUN apk add --no-cache nginx
+# Окончательный образ с nginx
+FROM nginx:alpine
 
-# Копируем собранные файлы в директорию nginx
-RUN cp -r dist /usr/share/nginx/html
+# Копируем конфигурацию nginx
+COPY ../nginx.conf /etc/nginx/conf.d/default.conf
 
-# Копируем конфигурацию nginx для корректной обработки SPA
-RUN echo 'server {
-    listen 80;
-    server_name localhost;
-    root /usr/share/nginx/html;
-    index index.html;
+# Копируем скомпилированные файлы React-приложения
+COPY --from=frontend-builder /app/dist /usr/share/nginx/html
 
-    # Обработка маршрутов SPA
-    location / {
-        try_files $uri $uri/ /index.html;
-    }
+WORKDIR /var/www
 
-    # API прокси
-    location /api {
-        proxy_pass http://backend:9000;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
-}' > /etc/nginx/conf.d/default.conf
+# Копируем исходники Laravel
+COPY ../backend .
 
 EXPOSE 80
 

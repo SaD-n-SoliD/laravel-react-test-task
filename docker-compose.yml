@@ -40,12 +40,12 @@ services:
     networks:
       - blog_network
 
-  # Web сервер (Nginx) - обслуживает React SPA и проксирует API
-  web:
+  # Frontend Web сервер (Nginx) - обслуживает React SPA и проксирует API
+  frontend:
     build:
       context: .
-      dockerfile: docker/nginx.Dockerfile
-    container_name: blog_web
+      dockerfile: docker/frontend.Dockerfile
+    container_name: blog_frontend
     restart: unless-stopped
     ports:
       - "8000:80"
