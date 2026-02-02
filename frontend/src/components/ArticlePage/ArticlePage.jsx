@@ -54,7 +54,7 @@ export const ArticlePage = () => {
 	if (!article) return <div className="no-article">Статья не найдена</div>;
 
 	return (
-		<main className="article-page-container">
+		<div className="article-page-container">
 			<div className="article-actions">
 				<button
 					onClick={() => navigate(-1)}
@@ -100,6 +100,6 @@ export const ArticlePage = () => {
 				/>
 				<CommentList comments={article.comments || []} />
 			</section>
-		</main>
+		</div>
 	);
 };

@@ -29,7 +29,7 @@ export const ArticleList = () => {
 	if (error) return <div className="error">{error}</div>;
 
 	return (
-		<main className="article-list-container">
+		<div className="article-list-container">
 			<h1 className="page-title">Блог</h1>
 			<div className="articles-grid">
 				{articles.length === 0 ? (
@@ -53,6 +53,6 @@ export const ArticleList = () => {
 					))
 				)}
 			</div>
-		</main>
+		</div>
 	);
 };
